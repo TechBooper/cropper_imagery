@@ -22,7 +22,6 @@ from PyQt5.QtWidgets import (
     QGridLayout,
     QHBoxLayout,
     QVBoxLayout,
-    QDialog,
     QVBoxLayout,
     QLabel,
     QComboBox,

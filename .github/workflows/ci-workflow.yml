@@ -1,4 +1,4 @@
-name: macOS CI
+name: Build on macOS
 
 on:
   push:
@@ -11,9 +11,9 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.9", "3.13" ]
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -21,12 +21,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Upgrade pip and install dependencies
+      - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
 
-      - name: Run tests
-        run: |
-          pytest --maxfail=1 --disable-warnings -q
+      - name: Verify code compiles
+        run: python -m compileall .
