@@ -31,13 +31,7 @@ jobs:
 
       - name: Run minimal GUI test
         run: |
-          python -c "import sys; sys.path.insert(0, '.'); \
-          from PyQt5.QtWidgets import QApplication; \
-          from PyQt5.QtCore import QTimer; \
-          from crops_lips import Application; \
-          app = QApplication([]); \
-          window = Application(); \
-          window.show(); \
-          QTimer.singleShot(3000, app.quit); \
-          sys.exit(app.exec_())"
+          cd cropper_project
+          python -c "from PyQt5.QtWidgets import QApplication; from PyQt5.QtCore import QTimer; from crops_lips import Application; app = QApplication([]); window = Application(); window.show(); QTimer.singleShot(3000, app.quit); app.exec_()"
+      
 
