@@ -34,7 +34,7 @@ jobs:
           python -c "import sys; \
           from PyQt5.QtWidgets import QApplication; \
           from PyQt5.QtCore import QTimer; \
-          from main import Application; \
+          from crops_lips import Application; \
           app = QApplication([]); \
           window = Application(); \
           window.show(); \
