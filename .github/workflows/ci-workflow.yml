@@ -28,3 +28,15 @@ jobs:
 
       - name: Verify code compiles
         run: python -m compileall .
+
+      - name: Run minimal GUI test
+        run: |
+          python -c "import sys; \
+          from PyQt5.QtWidgets import QApplication; \
+          from PyQt5.QtCore import QTimer; \
+          from main import Application; \
+          app = QApplication([]); \
+          window = Application(); \
+          window.show(); \
+          QTimer.singleShot(3000, app.quit); \
+          sys.exit(app.exec_())"
