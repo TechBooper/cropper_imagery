@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [ "3.9", "3.13" ]
+        python-version: [ "3.13" ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
