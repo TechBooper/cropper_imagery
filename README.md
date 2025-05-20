@@ -27,9 +27,6 @@ C’est un outil en Python, pensé pour être rapide, modulaire, et adaptable.
 cropper_imagery/
 │
 ├── cropper/                 # Modules de découpe selon parties du visage
-│   ├── crop_chin_image.py
-│   ├── crop_nose_image.py
-│   └── ...
 ├── processing.py            # Script principal pour traitement par lot
 ├── gradio_app.py            # Interface test basique avec Gradio
 ├── presets.json             # Formats de découpe disponibles
