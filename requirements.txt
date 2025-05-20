@@ -10,3 +10,5 @@ pillow-heif==0.21.0
 retinaface-pytorch==0.0.7
 pydng==1.1.2        # Optional, only if using DNG output
 pytest==8.3.3        # Optional, for testing
+PyQt5==5.15.11 # GUI to be implemented proprely / complex alternative to Gradio
+
