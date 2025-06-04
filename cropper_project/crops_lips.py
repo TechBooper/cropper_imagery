@@ -771,8 +771,10 @@ def process_images_threaded(
     valid_exts = (".jpg", ".jpeg", ".png", ".heic")
     filenames = [f for f in os.listdir(input_folder) if f.lower().endswith(valid_exts)]
     total = len(filenames)
+    if total == 0:
+        return 0, 0
     batch_size = max(1, total // (multiprocessing.cpu_count() * 2))
-    max_workers = min(4, len(filenames) // batch_size) if batch_size > 0 else 1
+    max_workers = max(1, min(4, len(filenames) // batch_size))
     batches = [filenames[i : i + batch_size] for i in range(0, total, batch_size)]
     processed = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
