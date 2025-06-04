@@ -739,10 +739,13 @@ def process_batch(
                     cropped_img = apply_aspect_ratio_filter(cropped_img, aspect_ratio)
                 if cropped_img:
                     cropped_img = apply_filter(cropped_img, filter_name, filter_intensity)
-                    save_image(cropped_img, output_path, metadata)
+                    # Save the cropped image and capture the success status
+                    saved = save_image(cropped_img, output_path, metadata)
                 else:
                     print(f"{filename}: Cropping failed. Skipping...")
-                if os.path.dirname(input_path) != os.path.dirname(output_path):
+                    saved = False
+                # Remove original only if the save succeeded and paths differ
+                if saved and os.path.dirname(input_path) != os.path.dirname(output_path):
                     os.remove(input_path)
         except Exception as e:
             print(f"Error processing {filename}: {e}")
